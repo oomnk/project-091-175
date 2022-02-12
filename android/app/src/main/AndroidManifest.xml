@@ -22,8 +22,13 @@
               />
             
             <meta-data android:name="com.google.android.geo.API_KEY"
-               android:value="AIzaSyC58rim4gOfXzog3ZA9itn4sM3yKZyGzm4"/>
+               android:value="AIzaSyDvK6UIPoVN0RawjLqf3Y6mM-Kwx_-V1DI"/>
 
+            <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />    
+
+            <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+            
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>

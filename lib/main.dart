@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project/pages/map.dart';
+import 'package:project/pages/login.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,16 +14,15 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.brown,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Caffee'),
+      home: const MyHomePage(title: 'Caffee'),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, this.title}) : super(key: key);
+  const MyHomePage({Key? key, this.title}) : super(key: key);
 
   final String? title;
-
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -32,26 +31,30 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Caffee"),
-      ),
-      body: Center(
-        child: Column(
-          children: <Widget>[
-            Text(
-              'Welcome to Caffee Application',
-            ),
-          ],
+      appBar: AppBar(title: const Text('Caffee')),
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('images/home.jpg'),
+            fit: BoxFit.cover,
+          ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => MapsPage()));
-        },
-        tooltip: 'Increment',
-        child: Icon(Icons.near_me),
-      ),
-    );
+        child: Center(
+            child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                const SizedBox( height: 24,),
+                  ElevatedButton(
+                        child: const Text('Start'),
+                        onPressed: () {
+                       Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => const MyLogin()));
+              },
+              style: ElevatedButton.styleFrom(primary: Colors.brown,),)
+                ]
+             ),
+          ),
+        ),
+      );
   }
 }

@@ -31,7 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Caffee')),
+      // appBar: AppBar(title: const Text('Caffee')),
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(

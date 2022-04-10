@@ -32,29 +32,60 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       // appBar: AppBar(title: const Text('Caffee')),
-      body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/images/home.jpg'),
-            fit: BoxFit.cover,
+      body: Stack(
+        children: [
+          Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/images/home.jpg'),
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
-        ),
-        child: Center(
-            child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                const SizedBox( height: 24,),
-                  ElevatedButton(
-                        child: const Text('Start'),
-                        onPressed: () {
-                       Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => const MyLogin()));
-              },
-              style: ElevatedButton.styleFrom(primary: Colors.brown,),)
-                ]
+          Container(
+            color: Colors.black.withOpacity(0.7),
+          ),
+
+           Align(
+             alignment: Alignment.topCenter,
+             child: Padding(
+               padding: const EdgeInsets.only(top:70),
+               child: Container(
+                 
+                //  color: Colors.brown,
+                          child:const Image(
+                     image: AssetImage('assets/images/logo.png'),
+                     fit: BoxFit.cover,
+                     
+                    ),
+               ),
              ),
+           ),
+          
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 20),
+              child: SizedBox(
+                width:MediaQuery.of(context).size.width*0.9,
+                height: 70,
+                child: ElevatedButton(
+                  child: const Text('GET STARTED!'),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const MyLogin()));
+                  },
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.brown,
+                  ),
+                ),
+              ),
+            ),
           ),
-        ),
-      );
+        ],
+      ),
+    );
   }
 }

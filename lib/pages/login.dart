@@ -11,38 +11,66 @@ class MyLogin extends StatelessWidget {
         title: const Text("Caffee"),
       ),
       body: Center(
-        child: Center(
-          child: Column(
-
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Caffee Login',
-                style: Theme.of(context).textTheme.headline5,
-              ),
-              TextFormField(
-                decoration: const InputDecoration(
-                  hintText: 'Username',
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 20.0),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Caffee Login',
+                  style: Theme.of(context).textTheme.headline5,
                 ),
-              ),
-              TextFormField(
-                decoration: const InputDecoration(
-                  hintText: 'Password',
+                TextFormField(
+                  decoration: const InputDecoration(
+                    hintText: 'Username',
+                  ),
                 ),
-                obscureText: true,
-              ),
-              const SizedBox(
-                height: 24,
-              ),
-              ElevatedButton(
-                child: const Text('ENTER'),
-                onPressed: () {
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => MapsPage()));
-                },
-                style: ElevatedButton.styleFrom(primary: Colors.brown,),
-              )
-            ],
+                TextFormField(
+                  decoration: const InputDecoration(
+                    hintText: 'Password',
+                  ),
+                  obscureText: true,
+                ),
+                const SizedBox(
+                  height: 58,
+                ),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    child: const Text('Sign In'),
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => MapsPage()));
+                    },
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.brown,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(32.0),
+                      ),
+                    ),
+                  ),
+                ),
+                const Text(" - or - "),
+                SizedBox(
+                  width: double.infinity,
+                  child: OutlinedButton(
+                    style: ElevatedButton.styleFrom(
+                      side: BorderSide(width: 1.0, color: Colors.brown),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(32.0),
+                      ),
+                    ),
+                    child: const Text('Create Account'),
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => MapsPage()));
+                    },
+                    // style: ElevatedButton.styleFrom(primary: Colors.brown),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

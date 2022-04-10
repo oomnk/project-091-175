@@ -6,20 +6,27 @@ class Cafe {
   final double lat;
   final double lon;
   final String photoRef;
+  final num rating;
 
-  Cafe(this.id, this.name, this.lat, this.lon, this.photoRef);
+  Cafe(this.id, this.name, this.lat, this.lon, this.photoRef, this.rating);
 
   static shopDetails(PlacesSearchResult places) {
     String id = places.placeId;
     String name = places.name;
     double lat = places.geometry!.location.lat;
     double lon = places.geometry!.location.lng;
-    String photoRef = places.reference[0];
-    
-    // if(!places.photos.isEmpty){
-    //   photoRef = places.photos[0];
-    // }
+    num? rating = 0;
 
-    return Cafe(id, name, lat, lon, photoRef);
+    String photoRef = "";
+    if( places.photos.isNotEmpty){
+      photoRef = places.photos[0].photoReference;
+    }
+
+    if(places.rating != null){
+      rating = places.rating;
+    }
+
+  
+    return Cafe(id, name, lat, lon, photoRef, rating!);
   }
 }

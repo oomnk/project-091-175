@@ -8,9 +8,9 @@ class GetCafe{
   static GetCafe? instance;
   static GetCafe getInstance() => instance ??= GetCafe();
 
-  Future<CafeDataList> getCafe(ThisDeviceLocation location) async{  
+  Future<CafeDataList> getCafe(ThisDeviceLocation location, num radius) async{  
     final googlePlaces = GoogleMapsPlaces(apiKey: apiKey);
-    final respones = await googlePlaces.searchNearbyWithRadius(Location(lat: location.lat, lng: location.long), 2000, type: 'cafe', keyword: 'coffee');
+    final respones = await googlePlaces.searchNearbyWithRadius(Location(lat: location.lat, lng: location.long), radius, type: 'cafe', keyword: 'coffee');
 
     return CafeDataList.convertToShops(respones.results);
   }
